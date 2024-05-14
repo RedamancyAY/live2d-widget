@@ -35,9 +35,9 @@ if (screen.width >= 768) {
     // 配置选项的具体用法见 README.md
     initWidget({
       waifuPath: live2d_path + "waifu-tips.json",
-      //apiPath: "https://live2d.fghrsh.net/api/",
-      cdnPath: "https://cdn.jsdelivr.net/gh/RedamancyAY/live2d_api/",
-      // cdnPath: "http://localhost/",
+      // cdnPath: "http://localhost:1234/",
+      cdnPath: "http://74.48.60.117:1234/",
+      
       tools: [
         "hitokoto",
         "asteroids",
