@@ -12,6 +12,7 @@ function loadExternalResource(url, type) {
       tag = document.createElement("link");
       tag.rel = "stylesheet";
       tag.href = url;
+      tag.id = "live2d_css";
     } else if (type === "js") {
       tag = document.createElement("script");
       tag.src = url;
@@ -27,7 +28,7 @@ function loadExternalResource(url, type) {
 // 加载 waifu.css live2d.min.js waifu-tips.js
 if (screen.width >= 768) {
   Promise.all([
-    loadExternalResource(live2d_path + "waifu.css", "css"),
+    loadExternalResource(live2d_path + "waifu_left.css", "css"),
     loadExternalResource(live2d_path + "live2dcubismcore.min.js", "js"),
     loadExternalResource(live2d_path + "live2d.min.js", "js"),
     loadExternalResource(live2d_path + "waifu-tips.js", "js"),
@@ -46,6 +47,8 @@ if (screen.width >= 768) {
         "photo",
         "info",
         "quit",
+        "left",
+        "right"
       ],
     });
   });

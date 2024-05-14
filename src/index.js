@@ -25,7 +25,8 @@ function loadWidget(config) {
         }
         for (let tool of config.tools) {
             if (tools[tool]) {
-                const { icon, callback } = tools[tool];
+                console.log(tool);
+                const { icon, id, callback } = tools[tool];
                 document.getElementById("waifu-tool").insertAdjacentHTML("beforeend", `<span id="waifu-tool-${tool}">${icon}</span>`);
                 document.getElementById(`waifu-tool-${tool}`).addEventListener("click", callback);
             }
@@ -125,6 +126,14 @@ function loadWidget(config) {
             if (!document.hidden) showMessage(result.message.visibilitychange, 6000, 9);
         });
     }
+    // (function () { // 根据位置加载
+    //     if (localStorage.getItem("Live2DPlace") === "left") {
+    //             document.getElementById("waifu-tool-right").style.display = "none";
+    //     } else if (localStorage.getItem("Live2DPlace") === "right") {
+    //             document.getElementById("waifu-tool-left").style.display = "none";
+    //             document.getElementById("live2d_css").href = live2d_path + "waifu_right.css";
+    //     }
+    // })();
 
     (function initModel() {
         let modelId = localStorage.getItem("modelId"),

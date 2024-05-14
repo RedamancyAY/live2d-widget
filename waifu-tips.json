@@ -29,7 +29,15 @@
 	},{
 		"selector": "#menus .site-page a[href^='/']",
 		"text": ["点击前往首页，想回到上一页可以使用浏览器的后退功能哦。", "点它就可以回到首页啦！", "回首页看看吧。"]
+	}, 
+	{
+		"selector": "#waifu-tool .fa-chevron-left",
+		"text": ["可以去左边吗？", "要搬家吗？"]
 	}, {
+		"selector": "#waifu-tool .fa-chevron-right",
+		"text": ["可以去左右吗？", "要搬家吗？"]
+	},
+	{
 		"selector": "#menus .site-page a[href^='/about/']",
 		"text": ["你想知道我家主人是谁吗？", "这里有一些关于我家主人的秘密哦，要不要看看呢？", "发现主人出没地点！"]
 	}, {

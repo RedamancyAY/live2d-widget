@@ -5,7 +5,8 @@ import fa_street_view from "@fortawesome/fontawesome-free/svgs/solid/street-view
 import fa_camera_retro from "@fortawesome/fontawesome-free/svgs/solid/camera-retro.svg";
 import fa_info_circle from "@fortawesome/fontawesome-free/svgs/solid/circle-info.svg";
 import fa_xmark from "@fortawesome/fontawesome-free/svgs/solid/xmark.svg";
-
+import fa_left from "@fortawesome/fontawesome-free/svgs/solid/angle-left.svg";
+import fa_right from "@fortawesome/fontawesome-free/svgs/solid/angle-right.svg";
 import showMessage from "./message.js";
 
 function showHitokoto() {
@@ -72,7 +73,39 @@ const tools = {
                 document.getElementById("waifu-toggle").classList.add("waifu-toggle-active");
             }, 3000);
         }
-    }
+    },
+    "left": {
+        icon: fa_right,
+        callback: () => { // 切换看板娘位置（左 => 右）
+			localStorage.setItem("Live2DPlace", "right");
+			showMessage("耶，可以去右边了呢～。", 2000, 11);
+			document.getElementById("waifu").style.bottom = "-500px";
+			document.getElementById("waifu-toggle").style.display = "none";
+			setTimeout(() => {
+				document.getElementById("live2d_css").href = live2d_path + "waifu_right.css";
+				document.getElementById("waifu").style.bottom = "0px";
+				document.getElementById("waifu-tool-left").style.display = "none";
+				document.getElementById("waifu-tool-right").style.display = "block";
+			}, 3000);
+			setTimeout('document.getElementById("waifu-toggle").style.display = "inline"',6000);
+		}
+    },
+    "right": {
+        icon: fa_left,
+        callback: () => { // 切换看板娘位置（左 <= 右）
+			localStorage.setItem("Live2DPlace", "left");
+			showMessage("耶，可以去左边了呢～。", 2000, 11);
+			document.getElementById("waifu").style.bottom = "-500px";
+			document.getElementById("waifu-toggle").style.display = "none";
+			setTimeout(() => {
+				document.getElementById("live2d_css").href = live2d_path + "waifu_left.css";
+				document.getElementById("waifu").style.bottom = "0px";
+				document.getElementById("waifu-tool-left").style.display = "block";
+				document.getElementById("waifu-tool-right").style.display = "none";
+			}, 3000);
+			setTimeout('document.getElementById("waifu-toggle").style.display = "inline"',6000);
+		}
+    },
 };
 
 export default tools;
